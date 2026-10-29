@@ -1,0 +1,160 @@
+
+//ejercicio1
+.btn-cta{
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-out 0.1s;
+
+&:hover{
+    background-color: #cc0000;
+    transform: translateY(-3px);
+
+   }
+&:active{
+    transform: translateY(-1px);
+   }
+
+}
+//ejercicio2
+
+.article-link{
+position: relative;
+display: inline-block;
+color: #999;
+text-decoration: none;
+&::after{
+    content: '';//obligatorio para que se vea el pseudo elemento
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 2px;
+    background-color:red;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+   }
+   &:hover{
+    &::after{
+        width: 100%;
+    }
+
+   }
+}
+//ejercicio3
+// como es un imput no se puede usar el pseudo elemento ::after, ya que no se puede poner contenido en un input, por lo que se debe usar un div contenedor para poder usar el pseudo elemento ::after
+
+.search-input{
+  width: 160px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+      transition: all 0.3s ease-out 0.1s;
+&:focus{
+    outline: none; 
+    width: 260px;
+    border-color: #ff0000;
+   }
+
+}
+//ejercicio4
+
+
+.user-card{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.card-details{
+opacity: 0;
+transition: opacity ;
+transition-duration: 0.3s;
+transition-timing-function: ease-out;
+transition-delay: 0.1s;
+    
+
+    }
+    &:hover{
+     transform: translateY(-5px);
+     background-color: #1cd925;
+.card-details{
+    opacity: 1;
+    }
+   }
+}
+//ejercicio5
+@keyframes zoomFadeIn {
+  0%{
+    opacity: 0;
+transform: scale(0.9);
+  }
+  100%{
+opacity: 1;
+transform: scale(1);
+  }
+}
+
+.promo-banner{
+  background-color: #ff0000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  animation: zoomFadeIn 0.7s ease-out 0.1s forwards;
+}
+//ejercicio6
+
+@keyframes slideInRight {
+  0%{
+    transform: translateX(120%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+.toast-notification{
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 10px;
+
+    animation: slideInRight 0.5s ease-out  0.4s forwards;
+}
+
+//ejercicio7
+@keyframes fadeUpEntrance{
+    0%{
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+.post-item{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    animation: fadeUpEntrance 0.5s ease-out 0.1s forwards;
+
+@for $i from 1 through 3{
+    &:nth-child(#{$i}){
+      animation-delay: 0.2s * $i;
+      // Cuando $i es 1 -> 1 * 0.2s = 0.2s
+        // Cuando $i es 2 -> 2 * 0.2s = 0.4s
+        // Cuando $i es 3 -> 3 * 0.2s = 0.6s
+    }
+
+    }
+}    

@@ -1,0 +1,34 @@
+transition: [propiedad] [duración] [efecto (timing)] [retardo (delay)];
+
+1. &:hover (El estado del cursor)
+¿Qué es?: Es una pseudoclase de estado.
+
+¿Cuándo actúa?: Se activa exactamente en el momento en que el usuario pasa el cursor del mouse por encima del elemento.
+
+¿Para qué lo usaste?: Para que el botón CTA se elevara (translateY) y cambiara de color cuando pasas el mouse por encima. En CSS plano esto sería .btn-cta:hover, pero con Less ahorras escribir .btn-cta usando &:hover.
+
+2. &:focus (El estado de enfoque / clic)
+¿Qué es?: Es otra pseudoclase de estado, pero orientada a la interacción y la accesibilidad.
+
+¿Cuándo actúa?: Se activa cuando el usuario hace clic dentro de un elemento interactivo (como un <input> o un botón) o cuando navega hacia él presionando la tecla Tab del teclado.
+
+¿Para qué lo usaste?: Para que el campo de búsqueda se ensanchara a 260px y cambiara el color de su borde únicamente cuando el usuario hace clic para escribir en él. En CSS plano sería .search-input:focus.
+
+3. &::after (El elemento fantasma)
+¿Qué es?: A diferencia de los dos anteriores (que son estados de interacción), este es un pseudoelemento.
+
+¿Qué hace?: Crea un elemento invisible dentro de tu HTML de forma virtual. Es como una "cajita fantasma" que se coloca automáticamente justo al final del contenido del elemento padre.
+
+¿Por qué es útil?: Te permite dibujar formas, líneas o decoraciones (como el subrayado progresivo) sin necesidad de escribir etiquetas extra (<span> o <div>) en tu HTML.
+
+Regla de oro: Para que exista, siempre necesita llevar adentro un content: ''; (aunque sea vacío).
+
+En resumen:
+
+& = Reemplaza al padre.
+
+&:hover = Cuando le pasas el mouse por encima.
+
+&:focus = Cuando haces clic/enfocas un input.
+
+&::after = Crea una cajita decorativa al final del elemento.
